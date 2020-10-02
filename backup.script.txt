@@ -1,0 +1,13 @@
+#!/bin/bash 
+USER="test"
+INPUT="/home/test"
+if [[ -d $INPUT ]]; then 
+echo 'Execute the script'
+else
+echo 'Make a Home Directory'
+exit 1
+fi 
+OUTPUT=/tmp/${USER}_home_$(date +%F_%H%M%S).tar.gz
+tar -cvzf ${OUTPUT} ${INPUT}
+echo "Backup of ${INPUT} to ${OUTPUT} has been successfully completed.
+tar -tvf ${OUTPUT}
